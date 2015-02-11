@@ -111,7 +111,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-    frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
     $(COMMON_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
     $(COMMON_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml
 
@@ -120,6 +119,14 @@ PRODUCT_PACKAGES += \
     static_busybox \
     make_ext4fs \
     setup_fs
+
+#Prebuilt chromium
+#COPY IN LIB/ARM SYMLINK
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/chromium/webview/webview.apk:system/app/webview/webview.apk \
+	$(LOCAL_PATH)/chromium/libwebviewchromium.so:/system/lib/libwebviewchromium.so \
+	$(LOCAL_PATH)/chromium/libwebviewchromium_loader.so:/system/lib/libwebviewchromium_loader.so \
+	$(LOCAL_PATH)/chromium/libwebviewchromium_plat_support.so:/system/lib/libwebviewchromium_plat_support.so
 
 # Live Wallpapers
 PRODUCT_PACKAGES += \
