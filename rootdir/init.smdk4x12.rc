@@ -456,6 +456,9 @@ on boot
     chown radio system /sys/class/sec/sec_key/wakeup_keys
     write /sys/class/sec/sec_key/wakeup_keys 116,172
 
+#prevent weird su permissions of rws--x---
+	chmod 0755 /system/xbin/su
+
 # serial keyboard daemon
 service sec_keyboard /system/bin/sec_keyboard /dev/ttySAC2
 	class late_start
