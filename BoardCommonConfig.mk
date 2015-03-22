@@ -16,6 +16,7 @@
 
 # This variable is set first, so it can be overridden
 # by BoardConfigVendor.mk
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS #flash compatibility
 PRODUCT_PREBUILT_WEBVIEWCHROMIUM := yes
 USE_CAMERA_STUB := true
 BOARD_USES_GENERIC_AUDIO := false
@@ -72,6 +73,9 @@ BLOCK_BASED_OTA := false
 
 # Hardware tunables
 BOARD_HARDWARE_CLASS := hardware/samsung/cmhw
+
+#skip dumb selinux metadata stuff
+SKIP_SET_METADATA := true
 
 # Graphics
 BOARD_EGL_CFG := device/samsung/smdk4412-common/configs/egl.cfg
